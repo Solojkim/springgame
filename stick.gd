@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 
-# Called when the node enters the scene tree for the first time.
-
+var health = 3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -12,4 +11,7 @@ func _process(delta):
 	rotate(0.015)
 
 
-
+func take_damage():
+	health -= 1
+	if health == 0:
+		queue_free()

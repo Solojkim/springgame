@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddoupojq6yvc1"]
+[gd_scene load_steps=3 format=3 uid="uid://ddoupojq6yvc1"]
 
 [ext_resource type="PackedScene" uid="uid://crkad748v1vu6" path="res://stick.tscn" id="1_10bgb"]
+[ext_resource type="PackedScene" uid="uid://cjo16cf31h2cl" path="res://boundary.tscn" id="2_bcllc"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,3 +21,6 @@ offset_bottom = 820.0
 
 [node name="Stick" parent="." instance=ExtResource("1_10bgb")]
 position = Vector2(599, 597)
+
+[node name="Boundary" parent="." instance=ExtResource("2_bcllc")]
+position = Vector2(595, 460)
