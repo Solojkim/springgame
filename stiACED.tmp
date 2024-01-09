@@ -28,8 +28,6 @@ position = Vector2(604, 190)
 [node name="Stick" parent="." instance=ExtResource("1_10bgb")]
 unique_name_in_owner = true
 position = Vector2(599, 597)
-collision_layer = 128
-collision_mask = 129
 
 [node name="Boundary" parent="." instance=ExtResource("2_bcllc")]
 position = Vector2(602, 412)
@@ -106,4 +104,3 @@ vertical_alignment = 1
 
 [connection signal="body_entered" from="WinArea" to="Stick" method="_on_win_area_body_entered"]
 [connection signal="health_depleted" from="Stick" to="." method="_on_stick_health_depleted"]
-[connection signal="win_zone" from="Stick" to="." method="_on_stick_win_zone"]

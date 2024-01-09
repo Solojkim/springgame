@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://yp5cnquu6xau"]
+
+[ext_resource type="Texture2D" uid="uid://caooqk4copvkw" path="res://PNG/Retina/block_square.png" id="1_eb88s"]
+[ext_resource type="Script" path="res://WinArea.gd" id="1_ir12s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjevm"]
+size = Vector2(128, 128)
+
+[node name="WinArea" type="Area2D"]
+collision_mask = 129
+script = ExtResource("1_ir12s")
+
+[node name="BlockSquare" type="Sprite2D" parent="."]
+texture = ExtResource("1_eb88s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sjevm")

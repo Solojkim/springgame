@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 var health = 5
 signal health_depleted
+signal win_zone
+
+
 var is_invincible = false
 
 
@@ -41,3 +44,8 @@ func _on_invincibility_timer_timeout():
 func start_invincibility():
 	is_invincible = true
 	%Invincibility_Timer.start()
+
+
+#player/mask 8
+func _on_win_area_body_entered(body):
+	win_zone.emit()

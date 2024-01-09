@@ -12,3 +12,9 @@ func _on_stick_health_depleted():
 	%GameOver.visible = true
 	%HealthBar.value = $Stick.health	
 	get_tree().paused = true
+
+
+
+func _on_stick_win_zone():
+	%WinScreen.visible = true
+	get_tree().paused = true
