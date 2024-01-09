@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://crkad748v1vu6"]
+[gd_scene load_steps=7 format=3 uid="uid://crkad748v1vu6"]
 
 [ext_resource type="Script" path="res://stick.gd" id="1_jth3s"]
 [ext_resource type="Texture2D" uid="uid://dik065veofq77" path="res://PNG/Default/laser.png" id="1_vt0y7"]
+[ext_resource type="Texture2D" uid="uid://cpn4x6tgpstlw" path="res://PNG/Retina/ball_blue_small.png" id="3_xlsh2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6rp3"]
 size = Vector2(64.4694, 19.2017)
@@ -47,5 +48,10 @@ debug_color = Color(0.623529, 0.517647, 0.364706, 0.419608)
 [node name="Invincibility_Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.5
+
+[node name="BallBlueSmall" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("3_xlsh2")
 
 [connection signal="timeout" from="Invincibility_Timer" to="." method="_on_invincibility_timer_timeout"]
