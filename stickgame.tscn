@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddoupojq6yvc1"]
+[gd_scene load_steps=4 format=3 uid="uid://ddoupojq6yvc1"]
 
 [ext_resource type="PackedScene" uid="uid://crkad748v1vu6" path="res://stick.tscn" id="1_10bgb"]
+[ext_resource type="Script" path="res://stickgame.gd" id="1_xxrth"]
 [ext_resource type="PackedScene" uid="uid://cjo16cf31h2cl" path="res://boundary.tscn" id="2_bcllc"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Stickgame" type="Node2D"]
+script = ExtResource("1_xxrth")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
