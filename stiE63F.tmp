@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddoupojq6yvc1"]
+[gd_scene load_steps=5 format=3 uid="uid://ddoupojq6yvc1"]
 
 [ext_resource type="PackedScene" uid="uid://crkad748v1vu6" path="res://stick.tscn" id="1_10bgb"]
 [ext_resource type="Script" path="res://stickgame.gd" id="1_xxrth"]
 [ext_resource type="PackedScene" uid="uid://cjo16cf31h2cl" path="res://boundary.tscn" id="2_bcllc"]
 [ext_resource type="PackedScene" uid="uid://yp5cnquu6xau" path="res://WinArea.tscn" id="4_u2o4a"]
-[ext_resource type="PackedScene" uid="uid://cka7iqf3mjvof" path="res://spring.tscn" id="5_xyciy"]
 
 [node name="Stickgame" type="Node2D"]
 script = ExtResource("1_xxrth")
@@ -35,7 +34,6 @@ collision_layer = 128
 collision_mask = 129
 
 [node name="Boundary" parent="." instance=ExtResource("2_bcllc")]
-unique_name_in_owner = true
 position = Vector2(602, 412)
 
 [node name="GameOver" type="CanvasLayer" parent="."]
@@ -109,9 +107,6 @@ offset_bottom = 646.0
 max_value = 5.0
 step = 1.0
 value = 5.0
-
-[node name="spring" parent="." instance=ExtResource("5_xyciy")]
-position = Vector2(165, 386)
 
 [connection signal="body_entered" from="WinArea" to="Stick" method="_on_win_area_body_entered"]
 [connection signal="health_depleted" from="Stick" to="." method="_on_stick_health_depleted"]
