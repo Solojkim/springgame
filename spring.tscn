@@ -1,21 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cka7iqf3mjvof"]
+[gd_scene load_steps=3 format=3 uid="uid://bp32cjrf5y0qm"]
 
-[ext_resource type="Script" path="res://spring.gd" id="1_u510x"]
 [ext_resource type="Texture2D" uid="uid://gy3fch3h02eg" path="res://PNG/Retina/sonicBouncePad-removebg-preview (1).png" id="2_lsh23"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i4ttp"]
-radius = 43.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_amv6k"]
+radius = 42.0476
 
-[node name="spring" type="CharacterBody2D"]
-script = ExtResource("1_u510x")
+[node name="spring" type="Area2D"]
 
 [node name="SonicBouncePad-removebg-preview(1)" type="Sprite2D" parent="."]
-position = Vector2(-1.35525e-20, 0)
 scale = Vector2(0.224242, 0.224242)
 texture = ExtResource("2_lsh23")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13)
-shape = SubResource("CircleShape2D_i4ttp")
-
-[node name="Timer" type="Timer" parent="."]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_amv6k")

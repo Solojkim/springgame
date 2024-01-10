@@ -1,59 +1,55 @@
-[gd_scene load_steps=7 format=3 uid="uid://crkad748v1vu6"]
+[gd_scene load_steps=6 format=3 uid="uid://crkad748v1vu6"]
 
 [ext_resource type="Script" path="res://stick.gd" id="1_jth3s"]
 [ext_resource type="Texture2D" uid="uid://dik065veofq77" path="res://PNG/Default/laser.png" id="1_vt0y7"]
 [ext_resource type="Texture2D" uid="uid://cpn4x6tgpstlw" path="res://PNG/Retina/ball_blue_small.png" id="3_xlsh2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uqsw"]
+size = Vector2(154, 41)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6rp3"]
-size = Vector2(64.4694, 19.2017)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_63knd"]
-size = Vector2(66, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y0fq"]
-size = Vector2(66, 24)
+size = Vector2(59.1327, 13)
 
 [node name="Stick" type="CharacterBody2D"]
-collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_jth3s")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-32, 0)
-shape = SubResource("RectangleShape2D_i6rp3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31.7653, 0)
-shape = SubResource("RectangleShape2D_i6rp3")
+[node name="mainBodyCollider" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_4uqsw")
 
 [node name="Laser2" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("1_vt0y7")
-
-[node name="HurtBoxLeft" type="Area2D" parent="."]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="HurtBoxLeft"]
-position = Vector2(-33, 0)
-shape = SubResource("RectangleShape2D_63knd")
-debug_color = Color(0.662745, 0.478431, 0.513726, 0.419608)
-
-[node name="HurtBoxRight" type="Area2D" parent="."]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="HurtBoxRight"]
-position = Vector2(33, 0)
-shape = SubResource("RectangleShape2D_0y0fq")
-debug_color = Color(0.623529, 0.517647, 0.364706, 0.419608)
-
-[node name="Invincibility_Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.5
 
 [node name="BallBlueSmall" type="Sprite2D" parent="."]
 position = Vector2(-4.76837e-07, 4.76837e-07)
 scale = Vector2(0.171875, 0.171875)
 texture = ExtResource("3_xlsh2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Invincibility_Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="LeftHurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHurtBox"]
+position = Vector2(-29.4337, 0.5)
+shape = SubResource("RectangleShape2D_i6rp3")
+debug_color = Color(0.827451, 0.32549, 0.588235, 0.419608)
+
+[node name="RightHurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHurtBox"]
+position = Vector2(29.6327, 0)
+shape = SubResource("RectangleShape2D_i6rp3")
+debug_color = Color(0.827451, 0.364706, 0.419608, 0.419608)
 
 [connection signal="timeout" from="Invincibility_Timer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="body_entered" from="LeftHurtBox" to="." method="_on_left_hurt_box_body_entered"]
+[connection signal="body_entered" from="RightHurtBox" to="." method="_on_right_hurt_box_body_entered"]

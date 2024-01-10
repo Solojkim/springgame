@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw4xe7puolti0"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_sqqh6"]
+[ext_resource type="Texture2D" uid="uid://dl5iduaaqlvyc" path="res://PNG/Retina/button_yellow.png" id="1_yyles"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnt15"]
+size = Vector2(151, 15)
+
+[node name="wall" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_sqqh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_pnt15")
+
+[node name="ButtonYellow" type="Sprite2D" parent="."]
+scale = Vector2(0.585938, 0.118028)
+texture = ExtResource("1_yyles")

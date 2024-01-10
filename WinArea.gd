@@ -1,5 +1,6 @@
 extends Area2D
 
+#signal win_zone_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,4 +11,6 @@ func _ready():
 func _process(delta):
 	pass
 
-#player/mask 8
+func _on_body_entered(_body):
+	%WinScreen.visible = true
+	get_tree().paused = true

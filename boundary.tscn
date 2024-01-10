@@ -9,6 +9,7 @@ size = Vector2(336, 20)
 size = Vector2(340, 24)
 
 [node name="Boundary" type="CharacterBody2D"]
+collision_layer = 2
 
 [node name="ButtonYellow" type="Sprite2D" parent="."]
 position = Vector2(0, 3.8147e-06)
