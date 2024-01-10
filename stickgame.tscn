@@ -23,7 +23,7 @@ offset_right = 1266.0
 offset_bottom = 820.0
 
 [node name="WinArea" parent="." instance=ExtResource("4_u2o4a")]
-position = Vector2(604, 190)
+position = Vector2(605, 245)
 
 [node name="Stick" parent="." instance=ExtResource("1_10bgb")]
 unique_name_in_owner = true
@@ -33,16 +33,6 @@ collision_mask = 129
 
 [node name="Boundary" parent="." instance=ExtResource("2_bcllc")]
 position = Vector2(602, 412)
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-offset_left = 3.0
-offset_top = 589.0
-offset_right = 330.0
-offset_bottom = 646.0
-max_value = 5.0
-step = 1.0
-value = 5.0
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -103,6 +93,18 @@ theme_override_font_sizes/font_size = 81
 text = "You Win!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 3.0
+offset_top = 589.0
+offset_right = 330.0
+offset_bottom = 646.0
+max_value = 5.0
+step = 1.0
+value = 5.0
 
 [connection signal="body_entered" from="WinArea" to="Stick" method="_on_win_area_body_entered"]
 [connection signal="health_depleted" from="Stick" to="." method="_on_stick_health_depleted"]
