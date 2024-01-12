@@ -17,7 +17,7 @@ func _process(delta):
 	move_and_slide()
 	rotate(rotation_speed)
 	
-	if isDamaged:
+	if isDamaged && !is_invincible:
 		start_invincibility()
 		health -= 1
 		if health == 0:
