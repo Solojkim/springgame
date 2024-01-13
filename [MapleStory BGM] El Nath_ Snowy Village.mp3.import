@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8p6kocqqy5th"
+path="res://.godot/imported/[MapleStory BGM] El Nath_ Snowy Village.mp3-f5d3622a48e8542f723f22ac8b5a8dd9.mp3str"
+
+[deps]
+
+source_file="res://[MapleStory BGM] El Nath_ Snowy Village.mp3"
+dest_files=["res://.godot/imported/[MapleStory BGM] El Nath_ Snowy Village.mp3-f5d3622a48e8542f723f22ac8b5a8dd9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
