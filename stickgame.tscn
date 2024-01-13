@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://crkad748v1vu6" path="res://stick.tscn" id="1_10bgb"]
 [ext_resource type="Script" path="res://stickgame.gd" id="1_xxrth"]
-[ext_resource type="PackedScene" uid="uid://bhldlehvddxix" path="res://wall.tscn" id="4_4l274"]
+[ext_resource type="PackedScene" uid="uid://mnpf30wolm3v" path="res://wall.tscn" id="4_4l274"]
 [ext_resource type="PackedScene" uid="uid://yp5cnquu6xau" path="res://WinArea.tscn" id="4_u2o4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qryqt"]
@@ -13,6 +13,9 @@ script = ExtResource("1_xxrth")
 
 [node name="Stick" parent="." instance=ExtResource("1_10bgb")]
 position = Vector2(616, 534)
+
+[node name="Camera2D" type="Camera2D" parent="Stick"]
+position = Vector2(1, 0)
 
 [node name="WinArea" parent="." instance=ExtResource("4_u2o4a")]
 position = Vector2(605, 245)
