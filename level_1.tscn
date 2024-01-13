@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://10mb3v47oda2"]
+
+[ext_resource type="PackedScene" uid="uid://crkad748v1vu6" path="res://stick.tscn" id="1_8g26l"]
+[ext_resource type="PackedScene" uid="uid://mnpf30wolm3v" path="res://wall.tscn" id="2_qhori"]
+[ext_resource type="PackedScene" uid="uid://yp5cnquu6xau" path="res://WinArea.tscn" id="2_t6b6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2flm"]
+size = Vector2(125, 126)
+
+[node name="Level 1" type="Node2D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="CanvasLayer2"]
+modulate = Color(0.509804, 0.423529, 0.117647, 1)
+offset_left = -71.0
+offset_top = -89.0
+offset_right = 1266.0
+offset_bottom = 820.0
+
+[node name="Stick" parent="." instance=ExtResource("1_8g26l")]
+position = Vector2(616, 534)
+
+[node name="Camera2D" type="Camera2D" parent="Stick"]
+position = Vector2(1, 0)
+
+[node name="WinArea" parent="." instance=ExtResource("2_t6b6e")]
+position = Vector2(1088, 532)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_q2flm")
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.541176)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -49.0
+offset_right = 111.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinScreen" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="WinScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.541176)
+
+[node name="Label" type="Label" parent="WinScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -49.0
+offset_right = 111.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 3.0
+offset_top = 589.0
+offset_right = 330.0
+offset_bottom = 646.0
+max_value = 5.0
+step = 1.0
+value = 5.0
+
+[node name="Wall" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(641, 423)
+
+[node name="Wall2" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(866, 423)
+
+[node name="Wall3" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(1092, 423)
+
+[node name="Wall4" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(518, 527)
+rotation = 1.5708
+
+[node name="Wall5" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(640, 630)
+
+[node name="Wall6" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(863, 630)
+
+[node name="Wall7" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(1091, 631)
+
+[node name="Wall8" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(1216, 528)
+rotation = 1.5708
+
+[connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
