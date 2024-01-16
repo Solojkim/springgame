@@ -50,6 +50,7 @@ func start_invincibility():
 
 func _on_left_hurt_box_body_entered(body):
 	var layer = body.get_collision_layer()
+
 	if layer == 2: #is a wall
 		isDamaged = true
 		leftDamaged = true

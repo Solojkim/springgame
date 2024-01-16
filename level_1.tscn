@@ -1,30 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddoupojq6yvc1"]
+[gd_scene load_steps=6 format=3 uid="uid://10mb3v47oda2"]
 
-[ext_resource type="PackedScene" uid="uid://crkad748v1vu6" path="res://stick.tscn" id="1_10bgb"]
-[ext_resource type="Script" path="res://stickgame.gd" id="1_xxrth"]
-[ext_resource type="PackedScene" uid="uid://mnpf30wolm3v" path="res://wall.tscn" id="4_4l274"]
-[ext_resource type="PackedScene" uid="uid://yp5cnquu6xau" path="res://WinArea.tscn" id="4_u2o4a"]
+[ext_resource type="PackedScene" uid="uid://crkad748v1vu6" path="res://stick.tscn" id="1_8g26l"]
+[ext_resource type="AudioStream" uid="uid://c8p6kocqqy5th" path="res://[MapleStory BGM] El Nath_ Snowy Village.mp3" id="1_bbwye"]
+[ext_resource type="PackedScene" uid="uid://mnpf30wolm3v" path="res://wall.tscn" id="2_qhori"]
+[ext_resource type="PackedScene" uid="uid://yp5cnquu6xau" path="res://WinArea.tscn" id="2_t6b6e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qryqt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2flm"]
 size = Vector2(125, 126)
 
-[node name="Stickgame" type="Node2D"]
-script = ExtResource("1_xxrth")
+[node name="Level 1" type="Node2D"]
 
-[node name="Stick" parent="." instance=ExtResource("1_10bgb")]
-position = Vector2(616, 534)
-
-[node name="Camera2D" type="Camera2D" parent="Stick"]
-position = Vector2(1, 0)
-
-[node name="WinArea" parent="." instance=ExtResource("4_u2o4a")]
-position = Vector2(605, 245)
-collision_layer = 0
-collision_mask = 1
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WinArea"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_qryqt")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_bbwye")
+volume_db = -36.541
+autoplay = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
@@ -35,6 +24,21 @@ offset_left = -71.0
 offset_top = -89.0
 offset_right = 1266.0
 offset_bottom = 820.0
+
+[node name="Stick" parent="." instance=ExtResource("1_8g26l")]
+position = Vector2(616, 534)
+
+[node name="Camera2D" type="Camera2D" parent="Stick"]
+position = Vector2(0, 1)
+
+[node name="WinArea" parent="." instance=ExtResource("2_t6b6e")]
+position = Vector2(1088, 532)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_q2flm")
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -108,7 +112,30 @@ max_value = 5.0
 step = 1.0
 value = 5.0
 
-[node name="Wall" parent="." instance=ExtResource("4_4l274")]
-position = Vector2(609, 409)
+[node name="Wall" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(641, 423)
+
+[node name="Wall2" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(866, 423)
+
+[node name="Wall3" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(1092, 423)
+
+[node name="Wall4" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(518, 527)
+rotation = 1.5708
+
+[node name="Wall5" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(640, 630)
+
+[node name="Wall6" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(863, 630)
+
+[node name="Wall7" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(1091, 631)
+
+[node name="Wall8" parent="." instance=ExtResource("2_qhori")]
+position = Vector2(1216, 528)
+rotation = 1.5708
 
 [connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
